@@ -68,9 +68,9 @@
                 var transferPromise = contract.transfer("0x7504995A30d5e1214Fc674be38900Bc8e910d29C",address, 1);
 
                 transferPromise.then(function(transaction) {
-                    console.log(transfer);
+                    console.log(transaction);
                     if (transaction) {
-                        alert('Transaction sent!');
+                        alert('Transaction sent! It will take sometime to process, you know, blcokchain');
                     } else {
                         alert('Transaction cancelled!');
                     }
@@ -91,9 +91,9 @@
             var panel;
 
             panel = dashboard.addPanel('Query Balance');
-            panel.addAddressEntry('Address', 'address');
+            //panel.addAddressEntry('Address', 'address');
             panel.addButton('Lookup', function(values) {
-                var balancePromise = contract.balanceOf(values.address);
+                var balancePromise = contract.balanceOf(document.getElementById('address').textContent);
 
                 balancePromise.then(function(result) {
                     alert('The balance is: ' + result.balance);
